@@ -35,6 +35,7 @@ export default function PostCard({ post: { body, createdAt, id, username, likeCo
               as="div"
               color="red"
               floated="right"
+              basic
               onClick={() => console.log('Delete post')}
               >
               <Icon name="trash" style={{ margin: 0 }} />
