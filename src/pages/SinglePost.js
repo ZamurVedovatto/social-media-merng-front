@@ -46,10 +46,10 @@ export default function SinglePost(props) {
         <Grid.Row>
           <Grid.Column width={2}>
             <Image
-              src='https://react.semantic-ui.com/images/avatar/large/molly.png'
+              src='https://picsum.photos/200'
               size="small"
               floated="right"
-              avatar
+              circular
             />
           </Grid.Column>
           <Grid.Column width={10}>

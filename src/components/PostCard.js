@@ -17,12 +17,12 @@ export default function PostCard({ post: { body, createdAt, id, username, likeCo
         <Image
           floated='right'
           size='mini'
-          src='https://react.semantic-ui.com/images/avatar/large/molly.png'
-          avatar
+          src='https://picsum.photos/200'
+          circular
         />
         <Card.Header>{username}</Card.Header>
         <Card.Meta as={Link} to={`/posts/${id}`}>{moment(createdAt).fromNow(true)}</Card.Meta>
-        <Card.Description>{body}</Card.Description>
+        <Card.Description className="description-cutted">{body}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <LikeButton post={{ id, likes, likeCount }} user={user} />

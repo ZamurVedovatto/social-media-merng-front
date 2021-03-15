@@ -13,3 +13,11 @@
 .ui.teal.button:focus, .ui.teal.buttons {
   background-color: #00b5ad;
 }
+
+.description-cutted {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
