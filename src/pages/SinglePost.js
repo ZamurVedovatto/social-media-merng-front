@@ -7,6 +7,7 @@ import LikeButton from '../components/LikeButton'
 
 import { AuthContext } from './../context/auth'
 import DeleteButton from '../components/DeleteButton'
+import CustomPopup from '../util/CustomPopup'
 
 export default function SinglePost(props) {
   const { user } = useContext(AuthContext)
@@ -48,6 +49,7 @@ export default function SinglePost(props) {
               src='https://react.semantic-ui.com/images/avatar/large/molly.png'
               size="small"
               floated="right"
+              avatar
             />
           </Grid.Column>
           <Grid.Column width={10}>
@@ -60,18 +62,20 @@ export default function SinglePost(props) {
               <hr />
               <Card.Content extra>
                 <LikeButton user={user} post={{ id, likeCount, likes }} />
-                <Button
-                  as="div"
-                  labelPosition="right"
-                  onClick={() => console.log('comment on post')}
-                >
-                  <Button basic color="blue">
-                    <Icon name="comments" />
+                <CustomPopup content="Comment on post">
+                  <Button
+                    as="div"
+                    labelPosition="right"
+                    onClick={() => console.log('comment on post')}
+                  >
+                    <Button basic color="blue">
+                      <Icon name="comments" />
+                    </Button>
+                    <Label basic color="blue" pointing="left">
+                      {commentCount}
+                    </Label>
                   </Button>
-                  <Label basic color="blue" pointing="left">
-                    {commentCount}
-                  </Label>
-                </Button>
+                </CustomPopup>
                 { user && (user.username === username) && (
                   <DeleteButton postId={id} callback={deletePostCallback} />
                 )}
