@@ -11,7 +11,7 @@ import { AuthContext } from './../context/auth'
 
 export default function Home() {
   const { user } = useContext(AuthContext)
-  const { loading, data } = useQuery(FETCH_POSTS_QUERY)
+  const { loading, data: { getPosts: posts } = {} } = useQuery(FETCH_POSTS_QUERY)
 
   return (
     <Grid columns={3}>
@@ -29,7 +29,7 @@ export default function Home() {
         ) : (
           <Transition.Group>
             {
-              data.getPosts && data.getPosts.map(post => (
+              posts && posts.map(post => (
                 <Grid.Column key={post.id} style={{ marginBottom: "2rem" }}>
                   <PostCard post={post} />
                 </Grid.Column>
